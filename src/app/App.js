@@ -9,22 +9,16 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import CustomLayout from "../layout/Layout";
 //TODO : encapsulate to array for each page index.js
 import {ProfileShow} from "../pages/profile/ProfileShow";
-import {VaccineList} from "../pages/vaccine/VaccineList";
-import {EmployeeList} from "../pages/employee/EmployeeList";
-import {InventoryList} from "../pages/inventory/InventoryList";
-import {ShiftBoardList} from "../pages/shiftboard/ShiftBoardList";
-import {ShiftList} from "../pages/shift/ShiftList";
-import {RecipientList} from "../pages/recipients/RecipientList";
-import {AppointmentList} from "../pages/appointment/AppointmentList";
-import {VaccineRecordsList} from "../pages/vaccinerecord/VaccineRecordsList";
-import {InvoiceList} from "../pages/invoice/InvoiceList";
-import {SurveyResultList} from "../pages/surveyresult/SurveyResultList";
+import {VaccineList} from "../pages/vaccine/vaccine/VaccineList";
+import {ClinicList} from "../pages/clinic/clinic/ClinicList";
 
 import LoginWithTheme from "../pages/login/Login";
-import {EmployeeCreate} from "../pages/employee/EmployeeCreate";
-import {ShiftBoardCreate} from "../pages/shiftboard/ShiftBoardCreate";
-import {ShiftCreate} from "../pages/shift/ShiftCreate";
-import {ShiftBoardEdit} from "../pages/shiftboard/ShiftBoardEdit";
+import {ClinicCreate} from "../pages/clinic/clinic/ClinicCreate";
+import {AdminList} from "../pages/clinic/admin/AdminList";
+import {AdminCreate} from "../pages/clinic/admin/AdminCreate";
+import {VaccineCreate} from "../pages/vaccine/vaccine/VaccineCreate";
+import {OrderList} from "../pages/vaccine/order/OrderList";
+
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
@@ -38,6 +32,12 @@ const dataProvider = simpleRestProvider(API_BASE_URL, httpClient);
 /*,
 
 <Route exact path="/resetPassword" component={ResetPassword} noLayout/>*/
+//TODO : Vaccine SHOW EDIT detail
+//TODO: Clinic SHOW EDIT detail
+//TODO: Order EDIT detail
+//TODO: Reset password
+//TODO: Edit Profile
+
 const App = () => (
     <Admin disableTelemetry
            dashboard={Dashboard}
@@ -53,24 +53,16 @@ const App = () => (
              />
            ]}
     >
-      <Resource name="profile"/>
-
-      <Resource name="clinic/employees" list={EmployeeList} create={EmployeeCreate} options={{ label: 'Clinic Employees' }}/>
-      <Resource name="shift/board" list={ShiftBoardList} create={ShiftBoardCreate} edit={ShiftBoardEdit}  options={{ label: 'ShiftBoard' }}/>
-      <Resource name="shift" list={ShiftList} create={ShiftCreate} options={{ label: 'Shift' }}/>
-      <Resource name="vaccines" list={VaccineList}/>
-      <Resource name="vaccine/inventory" list={InventoryList} options={{ label: 'Vaccine Inventory'}}/>
-      <Resource name="vaccine/records" list={VaccineRecordsList} options={{ label: 'Vaccine Records' }}/>
-      <Resource name="recipients" list={RecipientList}/>
-      <Resource name="appointments" list={AppointmentList}/>
-      <Resource name="invoices" list={InvoiceList}/>
-      <Resource name="survey/results" list={SurveyResultList} options={{ label: 'Survey Results' }}/>
+        <Resource name="profile"/>
+        <Resource name="clinic/admins" list={AdminList} create={AdminCreate} options={{ label: 'Clinic\'s Admins'}}/>
+        <Resource name="clinic" list={ClinicList} create={ClinicCreate} options={{ label: 'Clinic' }}/>
+        <Resource name="vaccines" list={VaccineList} create={VaccineCreate}/>
+        <Resource name="vaccines/orders" list={OrderList} options={{ label: 'Vaccines Orders'}}/>
       {/*Resource for SelectInput  */}
-      <Resource name="clinic/doctor/SelectInput"/>
-
-      {/*        <Resource name="clinic/roles"/>// TODO filter
-        <Resource name="shift/board/statuses"/> // TODO filter*/}
-
+        <Resource name="clinic/admins/selectInput"/>
+      {/*        <Resource name="clinic/roles"/>// TODO
+        <Resource name="shift/board/statuses"/> // TODO */}
     </Admin>
 );
+
 export default App;

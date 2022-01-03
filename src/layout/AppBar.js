@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CustomUserMenu from "./CustomUserMenu";
 
+//TODO: use themes, get style from themes
 const useStyles = makeStyles({
     title: {
         flex: 1,
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
 const CustomAppBar = (props) => {
     const classes = useStyles();
     return (
-        <AppBar {...props} elevation={1} userMenu={<CustomUserMenu />}>
+        <AppBar {...props} elevation={1} userMenu={<CustomUserMenu /> } style={{ background: '#2E3B55' }}>
             <Typography
                 variant="h6"
                 color="inherit"
