@@ -18,6 +18,8 @@ import {AdminList} from "../pages/clinic/admin/AdminList";
 import {AdminCreate} from "../pages/clinic/admin/AdminCreate";
 import {VaccineCreate} from "../pages/vaccine/vaccine/VaccineCreate";
 import {OrderList} from "../pages/vaccine/order/OrderList";
+import {DiseaseCreate} from "../pages/vaccine/disease/DiseaseCreate";
+import {DiseaseList} from "../pages/vaccine/disease/DiseaseList";
 
 
 const httpClient = (url, options = {}) => {
@@ -37,7 +39,8 @@ const dataProvider = simpleRestProvider(API_BASE_URL, httpClient);
 //TODO: Order EDIT detail
 //TODO: Reset password
 //TODO: Edit Profile
-
+//TODO: Api Resource for SelectInput
+//TODO: Configure Dockerfile and nginx.conf
 const App = () => (
     <Admin disableTelemetry
            dashboard={Dashboard}
@@ -56,12 +59,13 @@ const App = () => (
         <Resource name="profile"/>
         <Resource name="clinic/admins" list={AdminList} create={AdminCreate} options={{ label: 'Clinic\'s Admins'}}/>
         <Resource name="clinic" list={ClinicList} create={ClinicCreate} options={{ label: 'Clinic' }}/>
-        <Resource name="vaccines" list={VaccineList} create={VaccineCreate}/>
+        <Resource name="diseases" list={DiseaseList} create={DiseaseCreate}/>
         <Resource name="vaccines/orders" list={OrderList} options={{ label: 'Vaccines Orders'}}/>
+        <Resource name="vaccines" list={VaccineList} create={VaccineCreate}/>
       {/*Resource for SelectInput  */}
         <Resource name="clinic/admins/selectInput"/>
-      {/*        <Resource name="clinic/roles"/>// TODO
-        <Resource name="shift/board/statuses"/> // TODO */}
+      {/*        <Resource name="clinic/roles"/>
+        <Resource name="shift/board/statuses"/>    */}
     </Admin>
 );
 

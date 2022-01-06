@@ -15,7 +15,7 @@ import {
     TextInput,
 } from 'react-admin';
 
-//TODO: filter vaccine
+//TODO: filter OrderList
 const Filter = [
     <TextInput source="q" label="Search" alwaysOn />,
     <ReferenceInput source="userId" label="User" reference="users" allowEmpty>
@@ -35,13 +35,13 @@ export const OrderList = (props) => {
                 />
             ) : (
                 <Datagrid>
-                    <TextField source="name" />
-                    <NumberField source="doseRequire" label="Dose Require"/>
-                    <NumberField source="dosesPerVial" label="Doses Per Vial"/>
-                    <TextField source="mfgCompany" />
-                    <NumberField source="storageTempUpperBound" label="StorageTempUpperBound Celsius"  />
-                    <NumberField source="storageTempLowerBound" label="storageTempLowerBound Celsius" />
-                    <NumberField source="maxStorageDays" />
+                    <NumberField source="id" />
+                    <TextField source="uuid" />
+                    <ReferenceField label="Vaccine" source="vaccineId" reference="vaccines">
+                        <TextField source="name" />
+                    </ReferenceField>
+                    <NumberField source="unit" />
+                    <TextField source="status" />
                 </Datagrid>
             )}
         </List>

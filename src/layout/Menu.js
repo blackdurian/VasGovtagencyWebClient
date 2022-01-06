@@ -8,9 +8,9 @@ import {SvgIcon} from "@material-ui/core";
 
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import { RiMedicineBottleFill, RiFolderUserFill,RiHistoryFill,RiFolderChartFill } from "react-icons/ri";
-import { MdInventory } from "react-icons/md";
-import { FaClinicMedical,FaUserMd,FaFileInvoiceDollar,FaCalendarCheck,FaChartBar } from "react-icons/fa";
+import { RiMedicineBottleFill, RiFolderChartFill } from "react-icons/ri";
+import { MdInventory,MdCoronavirus } from "react-icons/md";
+import { FaClinicMedical,FaUserMd,FaChartBar } from "react-icons/fa";
 
 import SubMenu from './SubMenu';
 
@@ -73,6 +73,16 @@ const Menu = ({ dense = false } ) => {
                 icon={<SvgIcon component={LocalHospitalIcon}/>}
                 dense={dense}
             >
+
+                <MenuItemLink
+                    to={{
+                        pathname: '/diseases',
+                        state: { _scrollToTop: true },
+                    }}
+                    primaryText="Diseases"
+                    leftIcon={<SvgIcon component={MdCoronavirus}/>}
+                    dense={dense}
+                />
                 <MenuItemLink
                     to={{
                         pathname: '/vaccines',
