@@ -22,7 +22,7 @@ const genderChoices = [
 // todo: bod input set max date and min date
 // todo: add confirm password input
 // todo: useStyle
-export const AdminCreate = (props) => {
+export const AgencyAdminCreate = (props) => {
     return(
         <Create {...props}>
             <SimpleForm redirect="list">
@@ -32,7 +32,7 @@ export const AdminCreate = (props) => {
                 <TextInput source="name" validate={required()} />
                 <SelectInput source="gender" choices={genderChoices} validate={required()} />
                 <DateInput label="Birthdate" source="bod"   validate={required()} />
-                <TextInput source="role" initialValue={"ROLE_CLINIC_ADMIN"} validate={required()} disabled={true}/>
+                <TextInput source="role" initialValue={"ROLE_GOVT_AGENCY"} validate={required()} disabled={true}/>
             </SimpleForm>
         </Create>
     )};

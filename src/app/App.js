@@ -20,6 +20,8 @@ import {VaccineCreate} from "../pages/vaccine/vaccine/VaccineCreate";
 import {OrderList} from "../pages/vaccine/order/OrderList";
 import {DiseaseCreate} from "../pages/vaccine/disease/DiseaseCreate";
 import {DiseaseList} from "../pages/vaccine/disease/DiseaseList";
+import {AgencyAdminCreate} from "../pages/Agency/admin/AgencyAdminCreate";
+import {AgencyAdminList} from "../pages/Agency/admin/AgencyAdminList";
 
 
 const httpClient = (url, options = {}) => {
@@ -34,7 +36,7 @@ const dataProvider = simpleRestProvider(API_BASE_URL, httpClient);
 /*,
 
 <Route exact path="/resetPassword" component={ResetPassword} noLayout/>*/
-//TODO : Vaccine SHOW EDIT detail
+//TODO: Vaccine SHOW EDIT detail
 //TODO: Clinic SHOW EDIT detail
 //TODO: Order EDIT detail
 //TODO: Reset password
@@ -57,6 +59,7 @@ const App = () => (
            ]}
     >
         <Resource name="profile"/>
+        <Resource name="govtagency/admins" list={AgencyAdminList} create={AgencyAdminCreate} options={{ label: 'Agency\'s Admins'}}/>
         <Resource name="clinic/admins" list={AdminList} create={AdminCreate} options={{ label: 'Clinic\'s Admins'}}/>
         <Resource name="clinic" list={ClinicList} create={ClinicCreate} options={{ label: 'Clinic' }}/>
         <Resource name="diseases" list={DiseaseList} create={DiseaseCreate}/>

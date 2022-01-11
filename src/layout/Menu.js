@@ -8,15 +8,16 @@ import {SvgIcon} from "@material-ui/core";
 
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import { RiMedicineBottleFill, RiFolderChartFill } from "react-icons/ri";
+import { RiMedicineBottleFill, RiFolderChartFill,RiAdminFill } from "react-icons/ri";
 import { MdInventory,MdCoronavirus } from "react-icons/md";
-import { FaClinicMedical,FaUserMd,FaChartBar } from "react-icons/fa";
+import { FaClinicMedical,FaUserMd,FaChartBar,FaSitemap } from "react-icons/fa";
 
 import SubMenu from './SubMenu';
 
 
 const Menu = ({ dense = false } ) => {
     const [state, setState] = useState({
+        menuAgency:true,
         menuClinic:true,
         menuVaccine:true,
         menuRecipient:true,
@@ -40,6 +41,23 @@ const Menu = ({ dense = false } ) => {
         >
             <DashboardMenuItem />
             <SubMenu
+                handleToggle={() => handleToggle('menuAgency')}
+                isOpen={state.menuAgency}
+                name="My Agency"
+                icon={<SvgIcon component={FaSitemap} viewBox="0 0 600 476.6"/>} //TODO : put icon in straight layout
+                dense={dense}
+            >
+                <MenuItemLink
+                    to={{
+                        pathname: '/govtagency/admins',
+                        state: { _scrollToTop: true },
+                    }}
+                    primaryText="Agency's Admin"
+                    leftIcon={<SvgIcon component={RiAdminFill}/>}
+                    dense={dense}
+                />
+            </SubMenu>
+            <SubMenu
                 handleToggle={() => handleToggle('menuClinic')}
                 isOpen={state.menuClinic}
                 name="Clinic"
@@ -52,7 +70,7 @@ const Menu = ({ dense = false } ) => {
                         state: { _scrollToTop: true },
                     }}
                     primaryText="Clinic's Admin"
-                    leftIcon={<SvgIcon component={AssignmentIcon}/>}
+                    leftIcon={<SvgIcon component={FaUserMd} viewBox="0 0 550 446.6"/>}
                     dense={dense}
                 />
                 <MenuItemLink
@@ -61,7 +79,7 @@ const Menu = ({ dense = false } ) => {
                         state: { _scrollToTop: true },
                     }}
                     primaryText="Clinic"
-                    leftIcon={<SvgIcon component={FaUserMd} viewBox="0 0 550 446.6"/>}
+                    leftIcon={<SvgIcon component={AssignmentIcon}/>}
                     dense={dense}
                 />
 

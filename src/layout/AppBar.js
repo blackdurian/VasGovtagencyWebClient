@@ -29,7 +29,9 @@ const CustomAppBar = (props) => {
                 className={classes.title}
                 id="react-admin-title"
             />
-            <span className={classes.spacer} />
+            <span className={classes.spacer}>
+               VAS Government Agency
+            </span>
         </AppBar>
     );
 };
