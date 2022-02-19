@@ -45,7 +45,8 @@ const dataProvider = simpleRestProvider(API_BASE_URL, httpClient);
 //TODO: Configure Dockerfile and nginx.conf
 const App = () => (
     <Admin disableTelemetry
-           dashboard={Dashboard}
+        //TODO: Dashboard
+        // dashboard={Dashboard}
            loginPage={LoginWithTheme}
            authProvider={authProvider}
            dataProvider={dataProvider}

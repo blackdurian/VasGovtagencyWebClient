@@ -39,7 +39,7 @@ const Menu = ({ dense = false } ) => {
                 [classes.closed]: !open,
             })}
         >
-            <DashboardMenuItem />
+            {/*<DashboardMenuItem />*/}
             <SubMenu
                 handleToggle={() => handleToggle('menuAgency')}
                 isOpen={state.menuAgency}
@@ -120,7 +120,7 @@ const Menu = ({ dense = false } ) => {
                     dense={dense}
                 />
             </SubMenu>
-            <SubMenu
+{/*            <SubMenu
                 handleToggle={() => handleToggle('menuSurvey')}
                 isOpen={state.menuSurvey}
                 name="Survey"
@@ -137,7 +137,7 @@ const Menu = ({ dense = false } ) => {
                     dense={dense}
                 />
 
-            </SubMenu>
+            </SubMenu>*/}
         </div>
     );
 };
