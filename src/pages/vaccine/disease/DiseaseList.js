@@ -10,6 +10,7 @@ import {
 
 
 //TODO: Add Quick Filters
+//TODO: Edit
 export const DiseaseList = (props) => {
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     return (
@@ -24,7 +25,7 @@ export const DiseaseList = (props) => {
                 <Datagrid  >
                     <TextField source="id" />
                     <TextField source="name" />
-                    <EditButton />
+                    {/*<EditButton />*/}
                 </Datagrid>
             )}
         </List>

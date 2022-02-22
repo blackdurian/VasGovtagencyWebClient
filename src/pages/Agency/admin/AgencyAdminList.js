@@ -35,7 +35,7 @@ export const AgencyAdminList = props => {
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
     return (
-        <List title="Clinic's Admin" {...props}
+        <List title="Agency's Admin" {...props}
             // filters={clinicFilters}
         >
             {isSmall ? (
